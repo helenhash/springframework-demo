@@ -10,5 +10,4 @@ public class SimpleController {
     public String getHello(){
         return "Hello";
     }
-
 }
