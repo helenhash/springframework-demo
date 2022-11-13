@@ -1,8 +1,5 @@
 HELP.md
 target/
-spring-jdbc/
-jpa-one-one/
-spring-data-jpa/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
