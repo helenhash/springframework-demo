@@ -1,25 +1,19 @@
-package com.helen.demo.entity;
+package com.helen.demo.view;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Entity
-public class Product {
+public class ProductView {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
-    private Integer id;
-    @Column(name = "name")
+    private int id;
     private String name;
     private BigDecimal price;
     private String description;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
