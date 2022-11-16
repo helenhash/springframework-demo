@@ -1,2 +1,2 @@
-# spring-boot-demo
+# spring-boot-guide
 Spring Rest, Spring Data JPA, Spring Security, ....
