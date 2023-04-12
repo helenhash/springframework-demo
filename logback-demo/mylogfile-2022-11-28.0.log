@@ -1,0 +1,20 @@
+28-11-2022 09:29:16.690 [main] INFO  c.h.demo.SpringRestDemoApplication.logStarting - Starting SpringRestDemoApplication using Java 11.0.2 on Cony with PID 8556 (D:\My Training\spring\spring-boot-demo\jpa-one-one\target\classes started by No Name in D:\My Training\spring\spring-boot-demo\jpa-one-one)
+28-11-2022 09:29:16.697 [main] INFO  c.h.demo.SpringRestDemoApplication.logStartupProfileInfo - No active profile set, falling back to 1 default profile: "default"
+28-11-2022 09:29:17.817 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+28-11-2022 09:29:17.889 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+28-11-2022 09:29:18.950 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+28-11-2022 09:29:18.966 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+28-11-2022 09:29:18.967 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.65]
+28-11-2022 09:29:19.214 [main] INFO  o.a.c.c.C.[.[localhost].[/demo].log - Initializing Spring embedded WebApplicationContext
+28-11-2022 09:29:19.215 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2381 ms
+28-11-2022 09:29:19.498 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+28-11-2022 09:29:20.590 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+28-11-2022 09:29:20.693 [main] INFO  o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+28-11-2022 09:29:20.801 [main] INFO  org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.6.11.Final
+28-11-2022 09:29:21.103 [main] INFO  o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+28-11-2022 09:29:21.307 [main] INFO  org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+28-11-2022 09:29:22.532 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28-11-2022 09:29:22.557 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+28-11-2022 09:29:23.159 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+28-11-2022 09:29:24.027 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path '/demo'
+28-11-2022 09:29:24.047 [main] INFO  c.h.demo.SpringRestDemoApplication.logStarted - Started SpringRestDemoApplication in 8.11 seconds (JVM running for 10.588)
