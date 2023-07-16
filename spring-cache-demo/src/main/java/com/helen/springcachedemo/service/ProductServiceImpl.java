@@ -1,8 +1,9 @@
-package com.helen.demo.service;
+package com.helen.springcachedemo.service;
 
-import com.helen.demo.entity.Product;
-import com.helen.demo.repository.ProductRepository;
+import com.helen.springcachedemo.entity.Product;
+import com.helen.springcachedemo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,14 +12,17 @@ import java.util.Optional;
 @Service
 public class ProductServiceImpl implements ProductService {
 
+
     @Autowired
     ProductRepository productRepository;
 
+    @Cacheable("products")
     @Override
     public List<Product> getAllProducts() {
         return (List<Product>) this.productRepository.findAll();
     }
 
+    @Cacheable("product")
     @Override
     public Product getProductByID(Integer productID) {
         Optional<Product> productOptional = this.productRepository.findById(productID);
@@ -31,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateOrInsert(Product product) {
         // in some case, we will implement some business in this layer
-        Product saveProduct;
+        Product saveProduct = null;
         if (product.getId() == null){
             //insert
             saveProduct = this.productRepository.save(product);
@@ -49,7 +53,6 @@ public class ProductServiceImpl implements ProductService {
                 saveProduct = this.productRepository.save(product);
             } else {
                 // throw error because id does not exist.
-                throw new IllegalArgumentException("Product does not exist");
             }
         }
         return saveProduct;
@@ -61,8 +64,7 @@ public class ProductServiceImpl implements ProductService {
         if (productOptional.isPresent()){
             this.productRepository.deleteById(productID);
         } else {
-            // throw error because id does not exist.
-            throw new IllegalArgumentException("Product does not exist");
+            // throw error.
         }
     }
 }

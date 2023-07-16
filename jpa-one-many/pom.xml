@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from com.helen.demo.repository -->
 	</parent>
 	<groupId>com.helen</groupId>
-	<artifactId>spring-data-jpa</artifactId>
+	<artifactId>jpa-one-many</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-data-jpa</name>
+	<name>jpa-one-many</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

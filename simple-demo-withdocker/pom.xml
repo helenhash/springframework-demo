@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.helen</groupId>
-	<artifactId>simple-demo</artifactId>
+	<artifactId>simple-demo-withdocker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>simple-demo</name>
+	<name>simple-demo-withdocker</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -41,7 +41,7 @@
 						</goals>
 						<configuration>
 							<classifier>spring-boot</classifier>
-							<mainClass>com.helen.demo.SimpleDemoApplication</mainClass>
+							<mainClass>com.helen.demo.SimpleDockerDemoApplication</mainClass>
 						</configuration>
 					</execution>
 				</executions>

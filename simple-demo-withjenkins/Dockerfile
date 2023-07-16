@@ -1,4 +1,4 @@
-FROM maven:3.8-jdk-11-openj9 AS build
+FROM maven:3.6.3-jdk-11-openj9 AS build
 USER root
 WORKDIR /app
 COPY . .
@@ -10,6 +10,3 @@ WORKDIR /app
 COPY --from=build /app/target/simple-demo-0.0.1-SNAPSHOT.jar ./simple-demo.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "simple-demo.jar"]
-
-
-
