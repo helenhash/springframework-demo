@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@ContextConfiguration(classes = {ProductController.class})
 @ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = {ProductController.class})
 class ProductControllerTest {
     @Autowired
     private ProductController productController;
@@ -35,7 +35,7 @@ class ProductControllerTest {
         product.setId(1);
         product.setName("Name");
         product.setPrice(BigDecimal.valueOf(42L));
-        when(this.productService.getProductByID((Integer) any())).thenReturn(product);
+        when(this.productService.getProductByID(any())).thenReturn(product);
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/products/{id}", 1);
         MockMvcBuilders.standaloneSetup(this.productController)
                 .build()
