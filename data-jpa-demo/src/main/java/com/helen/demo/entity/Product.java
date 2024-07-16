@@ -3,7 +3,7 @@ package com.helen.demo.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Entity(name = "pro")
+@Entity
 public class Product {
 
     @Id

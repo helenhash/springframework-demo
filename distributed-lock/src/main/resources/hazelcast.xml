@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hz="http://www.hazelcast.com/schema/spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.hazelcast.com/schema/spring http://www.hazelcast.com/schema/spring/hazelcast-spring.xsd">
+  <hz:hazelcast id="hazelcast">
+    <hz:config>
+      <hz:cluster-name>crb-job-launcher</hz:cluster-name>
+      <hz:properties>
+        <hz:property name="hazelcast.jmx">true</hz:property>
+        <hz:property name="hazelcast.jmx.detailed">true</hz:property>
+        <hz:property name="hazelcast.logging.type">slf4j</hz:property>
+      </hz:properties>
+      <hz:metrics enabled="true">
+        <hz:jmx enabled="true"/>
+      </hz:metrics>
+      <hz:network port="${hazelcast.port}" port-auto-increment="false">
+        <hz:join>
+          <hz:multicast
+                  loopback-mode-enabled="true"
+                        multicast-port="${hazelcast.port}">
+          </hz:multicast>
+        </hz:join>
+      </hz:network>
+      <hz:cp-subsystem>
+        <hz:cp-member-count>3</hz:cp-member-count>
+      </hz:cp-subsystem>
+    </hz:config>
+  </hz:hazelcast>
+</beans>

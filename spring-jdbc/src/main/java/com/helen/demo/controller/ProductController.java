@@ -1,13 +1,11 @@
 package com.helen.demo.controller;
 
-import com.helen.demo.dao.ProductDAO;
+import com.helen.demo.repository.ProductRepository;
 import com.helen.demo.view.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,7 +13,7 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductDAO productDAO;
+    private ProductRepository productRepository;
     @GetMapping
     public ResponseEntity<List<Product>> getProducts(){
 
@@ -27,7 +25,7 @@ public class ProductController {
 //        product1.setPrice(BigDecimal.valueOf(100));
 //        products.add(product1);
 
-        return ResponseEntity.ok(this.productDAO.findAll());
+        return ResponseEntity.ok(this.productRepository.findAll());
     }
 
     @GetMapping("/{id}")
@@ -37,20 +35,20 @@ public class ProductController {
 //        product1.setId(1);
 //        product1.setName("Phone");
 //        product1.setPrice(BigDecimal.valueOf(100));
-        return ResponseEntity.ok(this.productDAO.findById(id));
+        return ResponseEntity.ok(this.productRepository.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product){
         //do some logic to save ...
         // ...
-        return ResponseEntity.ok(this.productDAO.insert(product));
+        return ResponseEntity.ok(this.productRepository.insert(product));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product product){
         //do some logic to save ...
         // ...
-        return ResponseEntity.ok(this.productDAO.update(id, product));
+        return ResponseEntity.ok(this.productRepository.update(id, product));
     }
 }

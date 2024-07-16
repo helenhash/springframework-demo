@@ -1,21 +1,33 @@
-package com.helen.demo.view;
+package com.helen.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
-//object to request for saving.
+@Entity
+public class Customer {
 
-public class CustomerRequest {
-
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column
     private String firstname;
+    @Column
     private String lastname;
+    @Column(name = "gender")
     private Boolean gender;
+    @Column(name = "date_of_birth")
     private Date birthday;
 
-    private Integer customerId;
-    private String city;
-    private String zipcode;
-    private String street;
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private Address address;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    private Set<Order> orders;
 
     public Integer getId() {
         return id;
@@ -57,35 +69,19 @@ public class CustomerRequest {
         this.birthday = birthday;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
-    public String getCity() {
-        return city;
+    public Set<Order> getOrders() {
+        return orders;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }
