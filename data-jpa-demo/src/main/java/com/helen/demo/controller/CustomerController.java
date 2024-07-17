@@ -16,8 +16,10 @@ import java.util.List;
 public class CustomerController {
     private static final Logger LOGGER  = LoggerFactory.getLogger(CustomerController.class);
 
-    @Autowired
-    private CustomerService customerService;
+    private final CustomerService customerService;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Customer>> getCustomers(){

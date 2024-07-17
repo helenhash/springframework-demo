@@ -15,8 +15,11 @@ import java.util.Optional;
 @Service
 public class CustomerServiceImpl implements CustomerService {
     private static final Logger LOGGER  = LoggerFactory.getLogger(CustomerServiceImpl.class);
-    @Autowired
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
+
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     @Override
     public List<Customer> getAllCustomers() {
