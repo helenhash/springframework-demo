@@ -1,4 +1,4 @@
-package com.helen.demo.view;
+package com.helen.demo.dto;
 
 import com.helen.demo.entity.Customer;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 
 //object to request for saving.
 
-public class CustomerView {
+public class CustomerDto {
 
     private Integer id;
     private String firstname;
@@ -91,10 +91,10 @@ public class CustomerView {
         this.street = street;
     }
 
-    public static CustomerView of(Customer entity){
-        CustomerView customerView = new CustomerView();
-        customerView.setFirstname(entity.getFirstname());
-        customerView.setCity(entity.getAddress() == null ? null : entity.getAddress().getCity());
-        return customerView;
+    public static CustomerDto of(Customer entity){
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setFirstname(entity.getFirstname());
+        customerDto.setCity(entity.getAddress() == null ? null : entity.getAddress().getCity());
+        return customerDto;
     }
 }

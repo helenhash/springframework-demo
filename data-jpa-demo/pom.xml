@@ -11,7 +11,7 @@
 	<groupId>com.helen</groupId>
 	<artifactId>data-jpa-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jpa-one-many</name>
+	<name>data-jpa-demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

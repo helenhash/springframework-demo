@@ -2,8 +2,7 @@ package com.helen.demo.service;
 
 import com.helen.demo.entity.Order;
 import com.helen.demo.repository.OrderRepository;
-import com.helen.demo.view.OrderView;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.helen.demo.dto.OrderDto;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,12 +20,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Transactional
     @Override
-    public List<OrderView> getOrdersByCustomer(Integer customerId) {
+    public List<OrderDto> getOrdersByCustomer(Integer customerId) {
         List<Order> orders = this.orderRepository.findByCustomerId(customerId);
         //convert orders entity to order view (json)
-        List<OrderView> orderViews = orders.stream()
-                .map(OrderView::of)
+        List<OrderDto> orderDtos = orders.stream()
+                .map(OrderDto::of)
                 .collect(Collectors.toList());
-        return orderViews;
+        return orderDtos;
     }
 }

@@ -3,11 +3,11 @@ package com.helen.demo.service;
 import com.helen.demo.entity.Address;
 import com.helen.demo.entity.Customer;
 import com.helen.demo.repository.CustomerRepository;
-import com.helen.demo.view.CustomerView;
+import com.helen.demo.dto.CustomerDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,38 +23,40 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
-        LOGGER.trace("TRACE Log from service");
-        LOGGER.debug("DEBUG Log from service");
-        LOGGER.info("An INFO Log from service");
-        LOGGER.warn("A WARN Log from service");
-        LOGGER.error("An ERROR Log from service");
+        this.customerRepository.getAllCustomer();
+//        this.customerRepository.findByFirstname("Giau 1");
         return (List<Customer>) this.customerRepository.findAll();
+
     }
 
     @Override
     public Customer getCustomerById(Integer customerId) {
         Optional<Customer> optional = this.customerRepository.findById(customerId);
-        if(optional.isPresent()){
-            return optional.get();
-        }
-        return null;
+        return optional.orElse(null);
     }
 
+    @Transactional
     @Override
-    public Customer saveCustomer(CustomerView customerView) {
+    public Customer saveCustomer(CustomerDto customerDto) {
+
         Customer customer = new Customer();
 //        customer.setFirstname(customerRequest.getFirstname());
-        customer.setLastname(customerView.getLastname());
+        customer.setLastname(customerDto.getLastname());
         // ...
 
         Address address = new Address();
-        address.setCity(customerView.getCity());
-        address.setStreet(customerView.getStreet());
-        address.setZipcode(customerView.getZipcode());
+        address.setCity(customerDto.getCity());
+        address.setStreet(customerDto.getStreet());
+        address.setZipcode(customerDto.getZipcode());
 
         // set address to customer and vice verse
-        customer.setAddress(address);
+        customer.setAddress(address);//
         address.setCustomer(customer);
+
+        this.customerRepository.save(customer);
+        //get saved customer
+        this.customerRepository.findByFirstname(customer.getFirstname());
+
 
         return this.customerRepository.save(customer);
     }

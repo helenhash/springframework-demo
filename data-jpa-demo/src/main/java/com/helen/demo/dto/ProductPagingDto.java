@@ -1,15 +1,15 @@
-package com.helen.demo.view;
+package com.helen.demo.dto;
 
 import com.helen.demo.entity.Product;
 
 import java.util.List;
 
-public class ProductPagingView {
+public class ProductPagingDto {
 
     public long totalElement;
     public List<Product> products;
 
-    public ProductPagingView(long totalElement, List<Product> products) {
+    public ProductPagingDto(long totalElement, List<Product> products) {
         this.totalElement = totalElement;
         this.products = products;
     }

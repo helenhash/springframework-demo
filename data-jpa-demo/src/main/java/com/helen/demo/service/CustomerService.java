@@ -1,7 +1,7 @@
 package com.helen.demo.service;
 
 import com.helen.demo.entity.Customer;
-import com.helen.demo.view.CustomerView;
+import com.helen.demo.dto.CustomerDto;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ public interface CustomerService {
 
     List<Customer> getAllCustomers();
     Customer getCustomerById(Integer customerId);
-    Customer saveCustomer(CustomerView customerView);
+    Customer saveCustomer(CustomerDto customerDto);
 }

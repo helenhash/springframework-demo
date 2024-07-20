@@ -16,10 +16,10 @@ public class Address {
     @Column
     private String street;
 
+    @JsonIgnore
     @OneToOne
     @MapsId
     @JoinColumn(name = "customer_id")
-    @JsonIgnore
     private Customer customer;
 
     public Integer getCustomerId() {

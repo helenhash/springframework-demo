@@ -6,10 +6,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"com.helen.demo"})
 @EnableJpaRepositories(basePackages = "com.helen.demo.repository")
-public class SpringOneManyDemoApplication {
+public class DataJPADemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringOneManyDemoApplication.class, args);
+		SpringApplication.run(DataJPADemoApplication.class, args);
+
 	}
 
 }

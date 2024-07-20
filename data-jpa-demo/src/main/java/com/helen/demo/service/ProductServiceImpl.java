@@ -2,8 +2,7 @@ package com.helen.demo.service;
 
 import com.helen.demo.entity.Product;
 import com.helen.demo.repository.ProductRepository;
-import com.helen.demo.view.ProductPagingView;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.helen.demo.dto.ProductPagingDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -38,10 +37,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductPagingView getProductsWithPaging(BigDecimal priceMin, BigDecimal priceMax, int page, int pageSize) {
+    public ProductPagingDto getProductsWithPaging(BigDecimal priceMin, BigDecimal priceMax, int page, int pageSize) {
         //Find product with paging
         Pageable pageable = PageRequest.of(page, pageSize, Sort.by("name").descending());
         Page<Product> productPage = productRepository.findByPriceGreaterThan(priceMin, pageable);
-        return new ProductPagingView(productPage.getTotalElements(), productPage.getContent());
+        return new ProductPagingDto(productPage.getTotalElements(), productPage.getContent());
     }
 }

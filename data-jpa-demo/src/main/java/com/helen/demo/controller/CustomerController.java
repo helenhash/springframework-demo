@@ -2,10 +2,9 @@ package com.helen.demo.controller;
 
 import com.helen.demo.entity.Customer;
 import com.helen.demo.service.CustomerService;
-import com.helen.demo.view.CustomerView;
+import com.helen.demo.dto.CustomerDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,11 +22,6 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<List<Customer>> getCustomers(){
-        LOGGER.trace("TRACE Log");
-        LOGGER.debug("DEBUG Log");
-        LOGGER.info("An INFO Log");
-        LOGGER.warn("A WARN Log");
-        LOGGER.error("An ERROR Log");
         return ResponseEntity.ok(this.customerService.getAllCustomers());
     }
 
@@ -37,7 +31,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Customer> saveCustomer(@RequestBody CustomerView customerView){
-        return ResponseEntity.ok(this.customerService.saveCustomer(customerView));
+    public ResponseEntity<Customer> saveCustomer(@RequestBody CustomerDto customerDto){
+        return ResponseEntity.ok(this.customerService.saveCustomer(customerDto));
     }
 }

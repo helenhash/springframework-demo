@@ -20,7 +20,8 @@ public class Order {
     @Column
     private Double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name="customer_id", nullable=false, insertable = false, updatable = false)
     private Customer customer;
 

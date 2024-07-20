@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@NamedEntityGraph(name = "Customer.orders",
+        attributeNodes = @NamedAttributeNode("orders")
+)
 public class Customer {
 
     @Id

@@ -1,16 +1,16 @@
-package com.helen.demo.view;
+package com.helen.demo.dto;
 
 import com.helen.demo.entity.Order;
 
 import java.util.Date;
 
-public class OrderView {
+public class OrderDto {
 
     private Integer orderId;
     private Integer customerId;
     private Date orderDate;
     private Double price;
-    private CustomerView customer;
+    private CustomerDto customer;
 
     public Integer getOrderId() {
         return orderId;
@@ -44,21 +44,21 @@ public class OrderView {
         this.price = price;
     }
 
-    public CustomerView getCustomer() {
+    public CustomerDto getCustomer() {
         return customer;
     }
 
-    public void setCustomer(CustomerView customer) {
+    public void setCustomer(CustomerDto customer) {
         this.customer = customer;
     }
 
-    public static OrderView of(Order entity){
-        OrderView orderView = new OrderView();
-        orderView.setOrderId(entity.getOrderId());
-        orderView.setCustomerId(entity.getCustomerId());
-        orderView.setOrderDate(entity.getOrderDate());
-        orderView.setPrice(entity.getPrice());
-        orderView.setCustomer(CustomerView.of(entity.getCustomer()));
-        return orderView;
+    public static OrderDto of(Order entity){
+        OrderDto orderDto = new OrderDto();
+        orderDto.setOrderId(entity.getOrderId());
+        orderDto.setCustomerId(entity.getCustomerId());
+        orderDto.setOrderDate(entity.getOrderDate());
+        orderDto.setPrice(entity.getPrice());
+        orderDto.setCustomer(CustomerDto.of(entity.getCustomer()));
+        return orderDto;
     }
 }
