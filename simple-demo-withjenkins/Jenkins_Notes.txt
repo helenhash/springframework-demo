@@ -1,0 +1,93 @@
+1. Install Image on Docker
+*Jenkins
+docker pull jenkins/jenkins
+http://jenkins.jenkins:58080/
+Create container
+jenkins 
+0d056edd91eb40b58bbea78127b2beba
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+http://localhost:5080/admin 
+http://jenkins.jenkins:58080/
+*Gitlab
+docker run gitlab/gitlab-ce
+Container
+-> find password : etc/gitlab/...password
+root/ /muFyrEqAeUrYWUmz/UtId5tXzybPjwyOoXiuLIFlsw=
+2. Some pre-setup
+
+gitlab - same server 
+Outbound requests
+same network
+docker network create jenkins
+docker network connect jenkins jenkins
+docker network connect jenkins gitlab
+
+Install Plugins
+gitlab, github ...
+
+Install tools on Jenkins
+Tools: jdk, maven
+https://jdk.java.net/archive/
+Point JAVA_HOME
+
+Update host file on the machine
+C:\Windows\System32\drivers\etc
+
+3. Pipeline
+
+Jenkinsfile
+https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
+
+4. Config
+
+Setup Gitlab on Jenkins
+	setup ssh in jenkins server (if pull ssh), then pust ssh key to gitlab
+	ssh-keygen -t ed25519 -C "giaule"
+	Trigger a cmd
+	git@gitlab.jenkins:root/simple-demo-withjenkins.git (container.network)
+
+Setup Jenkins on Gitlab 
+http://localhost:5080/root/simple-demo-withjenkins/-/settings/integrations
+gitlab -> integrations
+http://jenkins.jenkins:8080/
+
+5. Sonar
+Install sonar on docker
+docker run --name sonarqube -p 59000:9000 sonarqube
+admin/123456@min
+
+Connect network
+docker network connect jenkins sonarqube
+
+Access token
+http://localhost:5080/-/profile/personal_access_tokens
+=> Connect SonarQube with Gitlab
+
+*Connect Jenkins with Sonar:
+Install Sonarqube Scanner plugin on Jenkins
+http://localhost:58080/manage/pluginManager/available
+
+Setting on Jenkins (Sonar section)
+http://localhost:58080/manage/configure
+Need Server authentication token
+=> Setup credentials
+http://localhost:58080/manage/credentials/store/system/domain/_/newCredentials
+	create token on Sonar
+	http://localhost:59000/account/security
+
+Config Maven Project
+pom, jenkinsfile
+
+
+
+https://github.com/joutvhu/jenkins-training
+https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project
+https://www.sonatype.com/products/sonatype-nexus-repository
+
+- Install Jenkins on Docker (gitlab, sonar)
+- Setup Sonar on Local
+- Create simple Pipeline
+- Push event from gitlab
+- Create Multibranch pipeline 
+- Integrate Sonar on jenkins
