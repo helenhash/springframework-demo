@@ -2,6 +2,7 @@ package com.helen.demo.service;
 
 import com.helen.demo.entity.Product;
 import com.helen.demo.repository.ProductRepository;
+import com.helen.demo.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
 import java.util.List;
 
 @ExtendWith(MockitoExtension.class)

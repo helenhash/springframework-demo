@@ -2,6 +2,7 @@ package com.helen.demo.service;
 
 import com.helen.demo.entity.Product;
 import com.helen.demo.repository.ProductRepository;
+import com.helen.demo.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

@@ -13,6 +13,7 @@ import com.helen.demo.repository.ProductRepository;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import com.helen.demo.service.impl.ProductServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
