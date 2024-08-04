@@ -1,8 +1,9 @@
-package com.helen.demo.service;
+package com.helen.demo.service.impl;
 
+import com.helen.demo.dto.OrderDto;
 import com.helen.demo.entity.Order;
 import com.helen.demo.repository.OrderRepository;
-import com.helen.demo.dto.OrderDto;
+import com.helen.demo.service.OrderService;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

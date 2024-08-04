@@ -1,8 +1,9 @@
-package com.helen.demo.service;
+package com.helen.demo.service.impl;
 
 import com.helen.demo.dto.ProductPagingDto;
 import com.helen.demo.entity.Product;
 import com.helen.demo.repository.ProductRepository;
+import com.helen.demo.service.ProductService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -47,16 +48,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        return (List<Product>) this.productRepository.findAll();
+        return this.productRepository.findAll();
     }
 
     @Override
     public Product getProductByID(Integer productID) {
         Optional<Product> productOptional = this.productRepository.findById(productID);
-        if (productOptional.isPresent()) {
-            return productOptional.get();
-        }
-        return null; // or we can throw error.
+        // or we can throw error.
+        return productOptional.orElse(null);
     }
 
     @Override

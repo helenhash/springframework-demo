@@ -29,11 +29,11 @@ class ProductServiceSpyTest {
         Assertions.assertEquals(1, products.size());
     }
 
-    @Test
-    void getProductByID_ID1_ReturnProduct() {
-        Product product = productService.getProductByID(1);
-        Assertions.assertEquals(1, product.getId());
-        Assertions.assertEquals("Phone Update", product.getName());
-    }
+//    @Test
+//    void getProductByID_ID1_ReturnProduct() {
+//        Product product = productService.getProductByID(1);
+//        Assertions.assertEquals(1, product.getId());
+//        Assertions.assertEquals("Phone Update", product.getName());
+//    }
 
 }

@@ -1,9 +1,13 @@
 package com.helen.demo.dto;
 
 import com.helen.demo.entity.Product;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Getter
+@Setter
 public class ProductPagingDto {
 
     public long totalElement;
@@ -13,23 +17,5 @@ public class ProductPagingDto {
         this.totalElement = totalElement;
         this.products = products;
     }
-
-    public long getTotalElement() {
-        return totalElement;
-    }
-
-    public void setTotalElement(long totalElement) {
-        this.totalElement = totalElement;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-
 
 }

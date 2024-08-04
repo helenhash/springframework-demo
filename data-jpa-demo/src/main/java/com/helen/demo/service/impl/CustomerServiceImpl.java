@@ -1,9 +1,10 @@
-package com.helen.demo.service;
+package com.helen.demo.service.impl;
 
+import com.helen.demo.dto.CustomerDto;
 import com.helen.demo.entity.Address;
 import com.helen.demo.entity.Customer;
 import com.helen.demo.repository.CustomerRepository;
-import com.helen.demo.dto.CustomerDto;
+import com.helen.demo.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
