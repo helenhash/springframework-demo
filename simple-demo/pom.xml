@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.helen</groupId>
-	<artifactId>spring-filter-interceptor</artifactId>
+	<artifactId>simple-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>simple-demo</name>
 	<description>Demo project for Spring Boot</description>
