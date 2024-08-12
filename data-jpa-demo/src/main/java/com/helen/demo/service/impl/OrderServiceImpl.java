@@ -6,7 +6,7 @@ import com.helen.demo.repository.OrderRepository;
 import com.helen.demo.service.OrderService;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 

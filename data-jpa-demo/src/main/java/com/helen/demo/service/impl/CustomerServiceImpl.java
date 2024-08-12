@@ -41,9 +41,8 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer saveCustomer(CustomerDto customerDto) {
 
         Customer customer = new Customer();
-//        customer.setFirstname(customerRequest.getFirstname());
+        customer.setFirstname(customerDto.getFirstname());
         customer.setLastname(customerDto.getLastname());
-        // ...
 
         Address address = new Address();
         address.setCity(customerDto.getCity());

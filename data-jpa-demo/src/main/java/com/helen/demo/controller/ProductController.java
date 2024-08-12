@@ -4,8 +4,10 @@ import com.helen.demo.entity.Product;
 import com.helen.demo.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -60,5 +62,10 @@ public class ProductController {
     public ResponseEntity<String> deleteProduct(@PathVariable Integer id){
         this.productService.delete(id);
         return ResponseEntity.ok("Deleted successfully");
+    }
+
+    @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public String upload(@RequestParam MultipartFile file){
+        return "test" + file.getName();
     }
 }

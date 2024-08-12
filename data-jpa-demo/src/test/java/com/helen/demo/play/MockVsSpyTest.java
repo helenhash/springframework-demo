@@ -15,31 +15,32 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class MockVsSpyTest {
+class MockVsSpyTest {
 
     @Mock
     private List<String> mockList;
     @Spy
-    private List<String> spyList = new ArrayList();
+    private List<String> spyList = new ArrayList<>();
+
     @Test
-    public void testMockList() {
+    void testMockList() {
         mockList.add("test");
         assertNull(mockList.get(0));
     }
     @Test
-    public void testMockWithStub() {
+    void testMockWithStub() {
         String expected = "Mock 100";
         when(mockList.get(100)).thenReturn(expected);
         assertEquals(expected, mockList.get(100));
     }
 
     @Test
-    public void testSpyList() {
+    void testSpyList() {
         spyList.add("test");
         assertEquals("test", spyList.get(0));
     }
     @Test
-    public void testSpyWithStub() {
+    void testSpyWithStub() {
         String expected = "Spy 100";
         Mockito.doReturn(expected).when(spyList).get(100);
         assertEquals(expected, spyList.get(100));

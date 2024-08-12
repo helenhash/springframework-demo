@@ -1,9 +1,10 @@
 package com.helen.demo.entity;
 
+import jakarta.persistence.*;
+import jakarta.persistence.NamedEntityGraph;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 

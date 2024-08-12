@@ -1,6 +1,8 @@
 package com.helen.demo.dto;
 
 import com.helen.demo.entity.Customer;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

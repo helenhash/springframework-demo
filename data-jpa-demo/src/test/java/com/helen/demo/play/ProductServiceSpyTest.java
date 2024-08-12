@@ -1,4 +1,4 @@
-package com.helen.demo.service;
+package com.helen.demo.play;
 
 import com.helen.demo.entity.Product;
 import com.helen.demo.repository.ProductRepository;

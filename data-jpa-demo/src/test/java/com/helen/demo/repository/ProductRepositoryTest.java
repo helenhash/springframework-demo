@@ -1,6 +1,8 @@
 package com.helen.demo.repository;
 
 import com.helen.demo.entity.Product;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,15 @@ import java.util.List;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 //@Transactional(propagation = Propagation.NOT_SUPPORTED)
-public class ProductRepositoryTest {
+class ProductRepositoryTest {
 
     @Autowired
     ProductRepository productRepository;
+
+    @BeforeEach
+    void init(){
+        // insert some data
+    }
 
     @Test
     void save_a_product() {
