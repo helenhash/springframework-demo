@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleController {
 
     @GetMapping("/hello")
-    public String getHello(){
+    public String getHello() {
         return "Hello";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "Home";
     }
 
 }
