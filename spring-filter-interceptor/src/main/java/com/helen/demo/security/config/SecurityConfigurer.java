@@ -31,7 +31,7 @@ public class SecurityConfigurer {
                 .csrf(AbstractHttpConfigurer::disable) // New way to disable CSRF explicitly, Disable CSRF for stateless JWT-based security
                 .authorizeHttpRequests(
                         auth -> auth.requestMatchers(
-                                        "/login", "/home/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
+                                        "/login", "/register", "/home/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html"
                                 ).permitAll()
                                 .anyRequest().authenticated() // All other requests require authentication
                 ).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No session, JWT stateless
